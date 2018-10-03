@@ -1,0 +1,23 @@
+{
+	"name": "web-ext-event",
+	"version": "0.1.0",
+	"description": "Powerful event API conforming with the WebExtension Event interface",
+	"author": "Niklas Gollenstede",
+	"license": "MPL-2.0",
+	"dependencies": {},
+	"devDependencies": {
+		"eslintrc": "github:NiklasGollenstede/eslintrc#8e5b58d",
+		"ghooks": "^2.0.4"
+	},
+	"scripts": {
+		"lint": "eslintrc --ignore-path .gitignore ."
+	},
+	"config": {
+		"ghooks": {
+			"pre-commit": "npm run lint -- --color"
+		}
+	},
+	"eslintConfig": {
+		"extends": "./node_modules/eslintrc/web-ext.js"
+	}
+}
