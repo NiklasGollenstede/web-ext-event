@@ -1,4 +1,4 @@
-(function(global) { 'use strict'; define(() => { // This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+(function(global) { 'use strict'; const factory = function WebExtEvent(exports) { // license: MIT
 
 /**
  * Interface `Event`:
@@ -69,7 +69,7 @@ function setEvent(target, name, { init, async: _async = false, writeable = false
 	async function fire(args, options) {
 		if (!all) { return 0; } if (_async) { (await null); }
 		const ready = args !== null && Promise.all(Array.from(
-			all // must create a slice if the map before calling the handlers, otherwise any additional handlers added will catch this event
+			all // must create a slice of the map before calling the handlers, otherwise any additional handlers added will catch this event
 		).map(async ([ listener, ctx, ]) => {
 			ctx && ctx.once && event.removeListener(listener);
 			if (options && options.filter && !options.filter(listener)) { return false; }
@@ -125,4 +125,4 @@ return {
 	setEventGetter,
 };
 
-}); })(this);
+}; if (typeof define === 'function' && define.amd) { define([ 'exports', ], factory); } else { const exp = { }, result = factory(exp) || exp; if (typeof exports === 'object' && typeof module === 'object') { module.exports = result; } else { global[factory.name] = result; } } })((function() { return this; })()); // eslint-disable-line
