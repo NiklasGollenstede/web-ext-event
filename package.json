@@ -1,24 +1,30 @@
 {
 	"name": "web-ext-event",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Powerful event API conforming with the WebExtension Event interface",
 	"author": "Niklas Gollenstede",
 	"license": "MIT",
-	"main": "event.js",
+	"module": "event.esm.js",
 	"dependencies": {},
 	"devDependencies": {
-		"eslintrc": "github:NiklasGollenstede/eslintrc#fe4414d",
+		"eslintrc": "github:NiklasGollenstede/eslintrc#2b83830",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"typescript": "^4.2.4",
 		"ghooks": "^2.0.4"
 	},
 	"scripts": {
-		"lint": "eslintrc --ignore-path .gitignore ."
+		"lint": "eslintrc --ignore-path .gitignore . && tsc -p jsconfig.json"
 	},
 	"config": {
 		"ghooks": {
-			"pre-commit": "npm run lint --silent -- --color"
+			"pre-commit": "npm run lint --silent"
 		}
 	},
 	"eslintConfig": {
-		"extends": "./node_modules/eslintrc/web-ext.js"
+		"extends": "./node_modules/eslintrc/web-ext.js",
+		"root": true,
+		"parserOptions": {
+			"sourceType": "module"
+		}
 	}
 }
