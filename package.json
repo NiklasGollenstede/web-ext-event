@@ -1,10 +1,10 @@
 {
 	"name": "web-ext-event",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Powerful event API conforming with the WebExtension Event interface",
 	"author": "Niklas Gollenstede",
 	"license": "MIT",
-	"module": "event.esm.js",
+	"module": "index.esm.js",
 	"dependencies": {},
 	"devDependencies": {
 		"eslintrc": "github:NiklasGollenstede/eslintrc#2b83830",
@@ -13,7 +13,7 @@
 		"ghooks": "^2.0.4"
 	},
 	"scripts": {
-		"lint": "eslintrc --ignore-path .gitignore . && tsc -p jsconfig.json"
+		"lint": "eslintrc --ignore-path .gitignore . && tsc -p tsconfig.json"
 	},
 	"config": {
 		"ghooks": {
